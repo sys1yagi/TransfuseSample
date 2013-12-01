@@ -1,0 +1,1 @@
+./gradlew --daemon assembleDebug --stacktrace
