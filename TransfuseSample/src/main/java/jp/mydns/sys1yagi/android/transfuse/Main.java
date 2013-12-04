@@ -16,6 +16,8 @@ import org.androidtransfuse.annotations.OnCreate;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import jp.mydns.sys1yagi.android.transfuse.fragments.TopList;
+
 
 @Activity(label = "@string/app_name", type = FragmentActivity.class)
 @Layout(R.layout.activity_main)
@@ -29,7 +31,7 @@ public class Main {
     FragmentManager mFragmentManager;
 
     @Inject
-    @Named("top list")
+    @Named(TopList.NAME)
     Fragment mTopList;
 
     @OnCreate

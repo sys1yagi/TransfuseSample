@@ -24,6 +24,8 @@ import jp.mydns.sys1yagi.android.transfuse.R;
 @org.androidtransfuse.annotations.Fragment(type = ListFragment.class)
 public class TopList {
 
+    public static final String NAME = "TopList";
+
     @Inject
     IntentFactory mIntentFactory;
 
@@ -35,13 +37,16 @@ public class TopList {
     ListFragment mThis;
 
     @Inject
-    @Named("view injection")
+    @Named(ViewInjection.NAME)
     private Fragment mViewInjection;
 
     @Inject
     @Named(ActivityLifecycleMethods.NAME)
     private Fragment mActivityLifecycleMethods;
 
+    @Inject
+    @Named(ResourceInjection.NAME)
+    private Fragment mResourceInjection;
 
     private Map<String, Object> mObjectMap = new LinkedHashMap<String, Object>();
 
@@ -70,7 +75,7 @@ public class TopList {
         mObjectMap.put("Activity Lifecycle Methods", mActivityLifecycleMethods);
         mObjectMap.put("View Injection", mViewInjection);
         mObjectMap.put("Extra Injection", new ExtraInjectionActivityStrategy(10, "Transfuse!", "hello"));
-        mObjectMap.put("Resource Injection", mViewInjection);
+        mObjectMap.put("Resource Injection", mResourceInjection);
         mObjectMap.put("Preference Injection", mViewInjection);
         mObjectMap.put("SystemService Injection", mViewInjection);
         mObjectMap.put("Application", mViewInjection);
@@ -78,7 +83,6 @@ public class TopList {
         mObjectMap.put("Service", mViewInjection);
         mObjectMap.put("Listener Registration", mViewInjection);
         mObjectMap.put("Call-Through Events", mViewInjection);
-        //mObjectMap.put("Intent Factory", mViewInjection);
         mObjectMap.put("Provider", mViewInjection);
         mObjectMap.put("Scope", mViewInjection);
         mObjectMap.put("ImplementedBy", mViewInjection);

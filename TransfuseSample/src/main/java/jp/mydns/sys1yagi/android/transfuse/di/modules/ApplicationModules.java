@@ -16,6 +16,7 @@ import javax.inject.Named;
 
 import jp.mydns.sys1yagi.android.transfuse.ExtraInjection;
 import jp.mydns.sys1yagi.android.transfuse.fragments.ActivityLifecycleMethods;
+import jp.mydns.sys1yagi.android.transfuse.fragments.ResourceInjection;
 import jp.mydns.sys1yagi.android.transfuse.fragments.TopList;
 import jp.mydns.sys1yagi.android.transfuse.fragments.ViewInjection;
 
@@ -34,13 +35,13 @@ public class ApplicationModules {
     }
 
     @Provides
-    @Named("top list")
+    @Named(TopList.NAME)
     public Fragment getTopList() {
         return getFragment(TopList.class);
     }
 
     @Provides
-    @Named("view injection")
+    @Named(ViewInjection.NAME)
     public Fragment getViewInjection() {
         return getFragment(ViewInjection.class);
     }
@@ -50,6 +51,14 @@ public class ApplicationModules {
     public Fragment getActivityLifecycleMethods() {
         return getFragment(ActivityLifecycleMethods.class);
     }
+
+
+    @Provides
+    @Named(ResourceInjection.NAME)
+    public Fragment getResourceInjection() {
+        return getFragment(ResourceInjection.class);
+    }
+
 
     private Fragment getFragment(Class fragmentBaseClass) {
         try {

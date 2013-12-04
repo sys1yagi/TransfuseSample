@@ -3,6 +3,6 @@
 
     <string name="app_name">TransfuseSample</string>
     <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="injection_text">Oh! Injection!</string>
 
 </resources>

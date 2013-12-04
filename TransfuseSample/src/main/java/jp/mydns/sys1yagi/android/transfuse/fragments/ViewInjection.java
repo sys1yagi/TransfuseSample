@@ -16,14 +16,18 @@ import jp.mydns.sys1yagi.android.transfuse.R;
 @Layout(R.layout.fragment_view_injection)
 public class ViewInjection {
 
-    @Inject @View(R.id.text)
+    public static final String NAME = "ViewInjection";
+
+    @Inject
+    @View(R.id.text)
     TextView mTextView;
 
-    @Inject @View(tag="hello_button")
+    @Inject
+    @View(tag = "hello_button")
     Button mButton;
 
     @OnActivityCreated
-    private void init(){
+    private void init() {
         mTextView.setText("Hello Transfuse!!");
         mButton.setText("Tag Injection!!");
     }
