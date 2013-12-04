@@ -1,14 +1,16 @@
 package jp.mydns.sys1yagi.android.transfuse.fragments;
 
 
-import android.content.Context;
+import org.androidtransfuse.annotations.OnActivityCreated;
+import org.androidtransfuse.annotations.OnListItemClick;
+
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ListFragment;
 import android.widget.ArrayAdapter;
 
-import org.androidtransfuse.annotations.OnActivityCreated;
-import org.androidtransfuse.annotations.OnListItemClick;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -17,9 +19,6 @@ import jp.mydns.sys1yagi.android.transfuse.R;
 
 @org.androidtransfuse.annotations.Fragment(type = ListFragment.class)
 public class TopList {
-
-    @Inject
-    Context mContext;
 
     @Inject
     @Named("top menu list")
@@ -32,41 +31,49 @@ public class TopList {
     @Named("view injection")
     private Fragment mViewInjection;
 
+    private Map<String, Fragment> mFragmentMap = new LinkedHashMap<String, Fragment>();
 
     @OnListItemClick
     public void onItemClick(int position) {
-        //TODO Factory
-        FragmentTransaction transaction = mListFragment.getActivity()
-                .getSupportFragmentManager().beginTransaction();
-        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        transaction.replace(R.id.content_frame, mViewInjection);
-        transaction.addToBackStack(null);
-        transaction.commit();
-
+        String key = (String) mAdapter.getItem(position);
+        Fragment fragment = mFragmentMap.get(key);
+        if (fragment != null) {
+            FragmentTransaction transaction = mListFragment.getActivity()
+                    .getSupportFragmentManager().beginTransaction();
+            transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+            transaction.replace(R.id.content_frame, fragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
+        }
     }
 
     @OnActivityCreated
     public void activityCreated() {
-        mAdapter.add("Activity Lifecycle Methods");
-        mAdapter.add("View Injection");
-        mAdapter.add("Extra Injection");
-        mAdapter.add("Resource Injection");
-        mAdapter.add("Preference Injection");
-        mAdapter.add("SystemService Injection");
-        mAdapter.add("Fragment");
-        mAdapter.add("Service");
-        mAdapter.add("Listener Registration");
-        mAdapter.add("Call-Through Events");
-        mAdapter.add("Application");
-        mAdapter.add("Intent Factory");
-        mAdapter.add("Provider");
-        mAdapter.add("Scope");
-        mAdapter.add("ImplementedBy");
-        mAdapter.add("Asynchronous");
-        mAdapter.add("UIThread");
-        mAdapter.add("Events");
-        mAdapter.add("Parcel");
-        mAdapter.add("Factory");
+
+        mFragmentMap.put("Activity Lifecycle Methods", mViewInjection);
+        mFragmentMap.put("View Injection", mViewInjection);
+        mFragmentMap.put("Extra Injection", mViewInjection);
+        mFragmentMap.put("Resource Injection", mViewInjection);
+        mFragmentMap.put("Preference Injection", mViewInjection);
+        mFragmentMap.put("SystemService Injection", mViewInjection);
+        mFragmentMap.put("Application", mViewInjection);
+        mFragmentMap.put("Fragment", mViewInjection);
+        mFragmentMap.put("Service", mViewInjection);
+        mFragmentMap.put("Listener Registration", mViewInjection);
+        mFragmentMap.put("Call-Through Events", mViewInjection);
+        mFragmentMap.put("Intent Factory", mViewInjection);
+        mFragmentMap.put("Provider", mViewInjection);
+        mFragmentMap.put("Scope", mViewInjection);
+        mFragmentMap.put("ImplementedBy", mViewInjection);
+        mFragmentMap.put("Asynchronous", mViewInjection);
+        mFragmentMap.put("UIThread", mViewInjection);
+        mFragmentMap.put("Events", mViewInjection);
+        mFragmentMap.put("Parcel", mViewInjection);
+        mFragmentMap.put("Factory", mViewInjection);
+
+        for (String title : mFragmentMap.keySet()) {
+            mAdapter.add(title);
+        }
         mListFragment.setListAdapter(mAdapter);
     }
 }

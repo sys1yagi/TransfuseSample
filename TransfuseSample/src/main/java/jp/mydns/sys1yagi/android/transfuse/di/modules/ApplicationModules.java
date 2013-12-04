@@ -1,15 +1,13 @@
 package jp.mydns.sys1yagi.android.transfuse.di.modules;
 
+import org.androidtransfuse.annotations.Provides;
+import org.androidtransfuse.annotations.TransfuseModule;
+
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.widget.ArrayAdapter;
-
-import org.androidtransfuse.annotations.BindProviders;
-import org.androidtransfuse.annotations.ContextScope;
-import org.androidtransfuse.annotations.Provides;
-import org.androidtransfuse.annotations.TransfuseModule;
 
 import javax.inject.Named;
 
@@ -33,19 +31,19 @@ public class ApplicationModules {
     @Provides
     @Named("top list")
     public Fragment getTopList() {
-        return getFragment(TopList.class.getName() + "Fragment");
+        return getFragment(TopList.class);
     }
 
     @Provides
     @Named("view injection")
     public Fragment getViewInjection() {
-        return getFragment(ViewInjection.class.getName() + "Fragment");
+        return getFragment(ViewInjection.class);
     }
 
-    private Fragment getFragment(String fragmentName){
+    private Fragment getFragment(Class fragmentBaseClass) {
         try {
-            Class clazz = Class.forName(fragmentName);
-            return (Fragment)clazz.newInstance();
+            Class clazz = Class.forName(fragmentBaseClass.getName() + "Fragment");
+            return (Fragment) clazz.newInstance();
         } catch (Exception e) {
             e.printStackTrace();
         }
