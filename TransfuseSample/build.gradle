@@ -45,8 +45,13 @@ android {
 android.applicationVariants.all { variant ->
 
     def aptOutput = file("${project.buildDir}/source/r/${variant.dirName}")
-
     aptOutput.mkdirs()
+    aptOutput.eachFileRecurse groovy.io.FileType.FILES, {
+        if (it.name.equals('R.java')) {
+            return
+        }
+        it.delete()
+    }
     variant.javaCompile.options.compilerArgs += [
             '-processorpath', configurations.transfuse.asPath,
             '-s', aptOutput
