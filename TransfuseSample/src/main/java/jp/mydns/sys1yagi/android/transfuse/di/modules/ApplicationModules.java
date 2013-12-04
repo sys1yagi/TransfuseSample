@@ -2,8 +2,11 @@ package jp.mydns.sys1yagi.android.transfuse.di.modules;
 
 import org.androidtransfuse.annotations.Provides;
 import org.androidtransfuse.annotations.TransfuseModule;
+import org.androidtransfuse.intentFactory.ActivityIntentFactoryStrategy;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -11,6 +14,7 @@ import android.widget.ArrayAdapter;
 
 import javax.inject.Named;
 
+import jp.mydns.sys1yagi.android.transfuse.ExtraInjection;
 import jp.mydns.sys1yagi.android.transfuse.fragments.ActivityLifecycleMethods;
 import jp.mydns.sys1yagi.android.transfuse.fragments.TopList;
 import jp.mydns.sys1yagi.android.transfuse.fragments.ViewInjection;
@@ -56,5 +60,4 @@ public class ApplicationModules {
         }
         return null;
     }
-
 }

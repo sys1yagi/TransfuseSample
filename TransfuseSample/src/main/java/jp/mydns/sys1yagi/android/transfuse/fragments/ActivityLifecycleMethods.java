@@ -45,7 +45,7 @@ public class ActivityLifecycleMethods {
     public void pause() {
         addLog("OnPause");
     }
-    
+
     @OnResume
     public void resume() {
         addLog("OnResume");
