@@ -13,6 +13,7 @@ import javax.inject.Named;
 
 import jp.mydns.sys1yagi.android.transfuse.di.constant.ModuleConstant;
 import jp.mydns.sys1yagi.android.transfuse.fragments.ActivityLifecycleMethods;
+import jp.mydns.sys1yagi.android.transfuse.fragments.PreferenceInjection;
 import jp.mydns.sys1yagi.android.transfuse.fragments.ResourceInjection;
 import jp.mydns.sys1yagi.android.transfuse.fragments.TopList;
 import jp.mydns.sys1yagi.android.transfuse.fragments.ViewInjection;
@@ -49,11 +50,16 @@ public class ApplicationModules {
         return getFragment(ActivityLifecycleMethods.class);
     }
 
-
     @Provides
     @Named(ModuleConstant.FRAGMENT_RESOURCE_INJECTION)
     public Fragment getResourceInjection() {
         return getFragment(ResourceInjection.class);
+    }
+
+    @Provides
+    @Named(ModuleConstant.FRAGMENT_PREFERENCE_INJECTION)
+    public Fragment getPreferenceInjection() {
+        return getFragment(PreferenceInjection.class);
     }
 
 

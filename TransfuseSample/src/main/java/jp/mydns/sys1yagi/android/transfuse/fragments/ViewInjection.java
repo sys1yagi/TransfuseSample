@@ -3,6 +3,7 @@ package jp.mydns.sys1yagi.android.transfuse.fragments;
 import org.androidtransfuse.annotations.Fragment;
 import org.androidtransfuse.annotations.Layout;
 import org.androidtransfuse.annotations.OnActivityCreated;
+import org.androidtransfuse.annotations.Preference;
 import org.androidtransfuse.annotations.View;
 
 import android.widget.Button;

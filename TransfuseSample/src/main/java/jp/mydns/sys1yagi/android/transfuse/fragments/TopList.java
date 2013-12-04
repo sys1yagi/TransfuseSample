@@ -5,6 +5,8 @@ import org.androidtransfuse.annotations.OnListItemClick;
 import org.androidtransfuse.intentFactory.IntentFactory;
 import org.androidtransfuse.intentFactory.IntentFactoryStrategy;
 
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ListFragment;
@@ -19,6 +21,7 @@ import javax.inject.Named;
 import jp.mydns.sys1yagi.android.transfuse.ExtraInjectionActivityStrategy;
 import jp.mydns.sys1yagi.android.transfuse.R;
 import jp.mydns.sys1yagi.android.transfuse.di.constant.ModuleConstant;
+import jp.mydns.sys1yagi.android.transfuse.di.constant.PreferenceConstant;
 
 @org.androidtransfuse.annotations.Fragment(type = ListFragment.class)
 public class TopList {
@@ -44,6 +47,10 @@ public class TopList {
     @Inject
     @Named(ModuleConstant.FRAGMENT_RESOURCE_INJECTION)
     private Fragment mResourceInjection;
+
+    @Inject
+    @Named(ModuleConstant.FRAGMENT_PREFERENCE_INJECTION)
+    private Fragment mPreferenceInjection;
 
     private Map<String, Object> mObjectMap = new LinkedHashMap<String, Object>();
 
@@ -75,14 +82,20 @@ public class TopList {
                 new ExtraInjectionActivityStrategy(10, "Transfuse!", "hello"));
         mObjectMap.put("Resource Injection", mResourceInjection);
 
-        mObjectMap.put("Preference Injection", mViewInjection);
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(mThis.getActivity());
+        preferences.edit()
+                .putString(PreferenceConstant.NAME, "transfuse!")
+                .putBoolean(PreferenceConstant.IS_NOTIFICATION, true)
+                .commit();
+        mObjectMap.put("Preference Injection", mPreferenceInjection);
+
         mObjectMap.put("SystemService Injection", mViewInjection);
-        mObjectMap.put("Application", mViewInjection);
+        //mObjectMap.put("Application", mViewInjection);
         mObjectMap.put("Fragment", mViewInjection);
         mObjectMap.put("Service", mViewInjection);
         mObjectMap.put("Listener Registration", mViewInjection);
         mObjectMap.put("Call-Through Events", mViewInjection);
-        mObjectMap.put("Provider", mViewInjection);
+        //mObjectMap.put("Provider", mViewInjection);
         mObjectMap.put("Scope", mViewInjection);
         mObjectMap.put("ImplementedBy", mViewInjection);
         mObjectMap.put("Asynchronous", mViewInjection);

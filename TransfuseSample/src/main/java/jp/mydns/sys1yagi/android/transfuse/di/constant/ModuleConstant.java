@@ -11,4 +11,10 @@ public class ModuleConstant {
     public static final String FRAGMENT_ACTIVITY_LIFECYCLE_METHODS = "ACTIVITY_LIFECYCLE_METHODS";
 
     public static final String FRAGMENT_RESOURCE_INJECTION = "RESOURCE_INJECTION";
+
+    public static final String FRAGMENT_PREFERENCE_INJECTION = "PREFERENCE_INJECTION";
+
+    public static final String FRAGMENT_SYSTEMSERVICE_INJECTION = "SYSTEMSERVICE_INJECTION";
+
+
 }
