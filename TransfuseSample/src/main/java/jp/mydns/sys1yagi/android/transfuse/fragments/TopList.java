@@ -31,6 +31,10 @@ public class TopList {
     @Named("view injection")
     private Fragment mViewInjection;
 
+    @Inject
+    @Named(ActivityLifecycleMethods.NAME)
+    private Fragment mActivityLifecycleMethods;
+
     private Map<String, Fragment> mFragmentMap = new LinkedHashMap<String, Fragment>();
 
     @OnListItemClick
@@ -50,7 +54,7 @@ public class TopList {
     @OnActivityCreated
     public void activityCreated() {
 
-        mFragmentMap.put("Activity Lifecycle Methods", mViewInjection);
+        mFragmentMap.put("Activity Lifecycle Methods", mActivityLifecycleMethods);
         mFragmentMap.put("View Injection", mViewInjection);
         mFragmentMap.put("Extra Injection", mViewInjection);
         mFragmentMap.put("Resource Injection", mViewInjection);

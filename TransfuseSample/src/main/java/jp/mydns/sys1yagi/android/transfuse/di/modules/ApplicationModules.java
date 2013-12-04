@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 
 import javax.inject.Named;
 
+import jp.mydns.sys1yagi.android.transfuse.fragments.ActivityLifecycleMethods;
 import jp.mydns.sys1yagi.android.transfuse.fragments.TopList;
 import jp.mydns.sys1yagi.android.transfuse.fragments.ViewInjection;
 
@@ -38,6 +39,12 @@ public class ApplicationModules {
     @Named("view injection")
     public Fragment getViewInjection() {
         return getFragment(ViewInjection.class);
+    }
+
+    @Provides
+    @Named(ActivityLifecycleMethods.NAME)
+    public Fragment getActivityLifecycleMethods() {
+        return getFragment(ActivityLifecycleMethods.class);
     }
 
     private Fragment getFragment(Class fragmentBaseClass) {
