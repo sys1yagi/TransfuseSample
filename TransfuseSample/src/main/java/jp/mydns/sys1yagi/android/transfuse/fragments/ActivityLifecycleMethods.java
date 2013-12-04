@@ -25,8 +25,6 @@ import jp.mydns.sys1yagi.android.transfuse.R;
 @Layout(R.layout.fragment_activity_lifecycle_methods)
 public class ActivityLifecycleMethods {
 
-    public static final String NAME = "ActivityLifecycleMethods";
-
     @Inject
     @View(R.id.log_text)
     TextView mLogText;

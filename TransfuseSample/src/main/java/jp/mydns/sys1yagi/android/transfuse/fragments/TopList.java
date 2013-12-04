@@ -1,12 +1,10 @@
 package jp.mydns.sys1yagi.android.transfuse.fragments;
 
-
 import org.androidtransfuse.annotations.OnActivityCreated;
 import org.androidtransfuse.annotations.OnListItemClick;
 import org.androidtransfuse.intentFactory.IntentFactory;
 import org.androidtransfuse.intentFactory.IntentFactoryStrategy;
 
-import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ListFragment;
@@ -20,32 +18,31 @@ import javax.inject.Named;
 
 import jp.mydns.sys1yagi.android.transfuse.ExtraInjectionActivityStrategy;
 import jp.mydns.sys1yagi.android.transfuse.R;
+import jp.mydns.sys1yagi.android.transfuse.di.constant.ModuleConstant;
 
 @org.androidtransfuse.annotations.Fragment(type = ListFragment.class)
 public class TopList {
-
-    public static final String NAME = "TopList";
 
     @Inject
     IntentFactory mIntentFactory;
 
     @Inject
-    @Named("top menu list")
+    @Named(ModuleConstant.FRAGMENT_TOP_MENU_LIST)
     ArrayAdapter mAdapter;
 
     @Inject
     ListFragment mThis;
 
     @Inject
-    @Named(ViewInjection.NAME)
+    @Named(ModuleConstant.FRAGMENT_VIEW_INJECTION)
     private Fragment mViewInjection;
 
     @Inject
-    @Named(ActivityLifecycleMethods.NAME)
+    @Named(ModuleConstant.FRAGMENT_ACTIVITY_LIFECYCLE_METHODS)
     private Fragment mActivityLifecycleMethods;
 
     @Inject
-    @Named(ResourceInjection.NAME)
+    @Named(ModuleConstant.FRAGMENT_RESOURCE_INJECTION)
     private Fragment mResourceInjection;
 
     private Map<String, Object> mObjectMap = new LinkedHashMap<String, Object>();
@@ -74,8 +71,10 @@ public class TopList {
     public void activityCreated() {
         mObjectMap.put("Activity Lifecycle Methods", mActivityLifecycleMethods);
         mObjectMap.put("View Injection", mViewInjection);
-        mObjectMap.put("Extra Injection", new ExtraInjectionActivityStrategy(10, "Transfuse!", "hello"));
+        mObjectMap.put("Extra Injection",
+                new ExtraInjectionActivityStrategy(10, "Transfuse!", "hello"));
         mObjectMap.put("Resource Injection", mResourceInjection);
+
         mObjectMap.put("Preference Injection", mViewInjection);
         mObjectMap.put("SystemService Injection", mViewInjection);
         mObjectMap.put("Application", mViewInjection);

@@ -7,7 +7,6 @@ import org.androidtransfuse.annotations.OnActivityCreated;
 import org.androidtransfuse.annotations.Resource;
 import org.androidtransfuse.annotations.View;
 
-import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -19,8 +18,6 @@ import jp.mydns.sys1yagi.android.transfuse.R;
 @Fragment
 @Layout(R.layout.fragment_resource_injection)
 public class ResourceInjection {
-
-    public static final String NAME = "ResourceInjection";
 
     @Inject
     @Resource(R.string.injection_text)

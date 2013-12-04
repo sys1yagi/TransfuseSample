@@ -16,8 +16,6 @@ import jp.mydns.sys1yagi.android.transfuse.R;
 @Layout(R.layout.fragment_view_injection)
 public class ViewInjection {
 
-    public static final String NAME = "ViewInjection";
-
     @Inject
     @View(R.id.text)
     TextView mTextView;
