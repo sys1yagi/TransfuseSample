@@ -4,6 +4,9 @@ import org.androidtransfuse.annotations.Activity;
 import org.androidtransfuse.annotations.Extra;
 import org.androidtransfuse.annotations.Layout;
 import org.androidtransfuse.annotations.OnCreate;
+import org.androidtransfuse.annotations.View;
+
+import android.widget.TextView;
 
 import javax.inject.Inject;
 
@@ -13,13 +16,31 @@ public class ExtraInjection {
 
     public static final String NAME = "ExtraInjection";
 
-    @Inject @Extra("name")
-    String name;
-    @Inject @Extra(value="age", optional=true)
-    Integer age;
+    @Inject
+    @Extra("title")
+    String mTitle;
+
+    @Inject
+    @Extra(value = "message")
+    String mMessage;
+
+    @Inject
+    @Extra(value = "count", optional = false)
+    Integer mCount;
+
+    @Inject @View(R.id.title)
+    TextView mTitleText;
+
+    @Inject @View(R.id.message)
+    TextView mMessageText;
+
+    @Inject @View(R.id.count)
+    TextView mCountText;
 
     @OnCreate
-    private void init(){
-
+    private void init() {
+        mTitleText.setText("title=" + mTitle);
+        mMessageText.setText("message=" + mMessage);
+        mCountText.setText("count=" + mCount);
     }
 }

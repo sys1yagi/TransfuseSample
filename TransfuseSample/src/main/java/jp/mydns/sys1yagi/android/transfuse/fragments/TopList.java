@@ -3,8 +3,9 @@ package jp.mydns.sys1yagi.android.transfuse.fragments;
 
 import org.androidtransfuse.annotations.OnActivityCreated;
 import org.androidtransfuse.annotations.OnListItemClick;
+import org.androidtransfuse.intentFactory.IntentFactory;
+import org.androidtransfuse.intentFactory.IntentFactoryStrategy;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -17,11 +18,14 @@ import java.util.Map;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import jp.mydns.sys1yagi.android.transfuse.ExtraInjection;
+import jp.mydns.sys1yagi.android.transfuse.ExtraInjectionActivityStrategy;
 import jp.mydns.sys1yagi.android.transfuse.R;
 
 @org.androidtransfuse.annotations.Fragment(type = ListFragment.class)
 public class TopList {
+
+    @Inject
+    IntentFactory mIntentFactory;
 
     @Inject
     @Named("top menu list")
@@ -37,7 +41,6 @@ public class TopList {
     @Inject
     @Named(ActivityLifecycleMethods.NAME)
     private Fragment mActivityLifecycleMethods;
-
 
 
     private Map<String, Object> mObjectMap = new LinkedHashMap<String, Object>();
@@ -56,18 +59,17 @@ public class TopList {
                 transaction.addToBackStack(null);
                 transaction.commit();
             }
-        } else if (object instanceof Intent) {
-            Intent intent = (Intent) object;
-            mThis.startActivity(intent);
+        } else if (object instanceof IntentFactoryStrategy) {
+            IntentFactoryStrategy intentFactoryStrategy = (IntentFactoryStrategy) object;
+            mIntentFactory.start(intentFactoryStrategy);
         }
     }
 
     @OnActivityCreated
     public void activityCreated() {
-
         mObjectMap.put("Activity Lifecycle Methods", mActivityLifecycleMethods);
         mObjectMap.put("View Injection", mViewInjection);
-        //mObjectMap.put("Extra Injection", mViewInjection);
+        mObjectMap.put("Extra Injection", new ExtraInjectionActivityStrategy(10, "Transfuse!", "hello"));
         mObjectMap.put("Resource Injection", mViewInjection);
         mObjectMap.put("Preference Injection", mViewInjection);
         mObjectMap.put("SystemService Injection", mViewInjection);

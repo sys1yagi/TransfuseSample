@@ -44,7 +44,8 @@ android {
 
 android.applicationVariants.all { variant ->
 
-    aptOutput = file("${project.buildDir}/source/apt_generated/${variant.dirName}")
+    def aptOutput = file("${project.buildDir}/source/r/${variant.dirName}")
+
     aptOutput.mkdirs()
     variant.javaCompile.options.compilerArgs += [
             '-processorpath', configurations.transfuse.asPath,
