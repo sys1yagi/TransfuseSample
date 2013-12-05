@@ -1,5 +1,7 @@
 package jp.mydns.sys1yagi.android.transfuse.di.modules;
 
+import org.androidtransfuse.annotations.BindProvider;
+import org.androidtransfuse.annotations.BindProviders;
 import org.androidtransfuse.annotations.Provides;
 import org.androidtransfuse.annotations.TransfuseModule;
 
@@ -12,13 +14,18 @@ import android.widget.ArrayAdapter;
 import javax.inject.Named;
 
 import jp.mydns.sys1yagi.android.transfuse.di.constant.ModuleConstant;
+import jp.mydns.sys1yagi.android.transfuse.di.providers.RssLoaderProvider;
 import jp.mydns.sys1yagi.android.transfuse.fragments.ActivityLifecycleMethods;
 import jp.mydns.sys1yagi.android.transfuse.fragments.PreferenceInjection;
 import jp.mydns.sys1yagi.android.transfuse.fragments.ResourceInjection;
 import jp.mydns.sys1yagi.android.transfuse.fragments.TopList;
 import jp.mydns.sys1yagi.android.transfuse.fragments.ViewInjection;
+import jp.mydns.sys1yagi.android.transfuse.tools.IRssLoader;
 
 @TransfuseModule
+@BindProviders({
+        @BindProvider(type = IRssLoader.class, provider = RssLoaderProvider.class)
+})
 public class ApplicationModules {
 
     @Provides
