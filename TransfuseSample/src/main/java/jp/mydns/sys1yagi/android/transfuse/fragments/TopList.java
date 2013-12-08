@@ -52,6 +52,10 @@ public class TopList {
     @Named(ModuleConstant.FRAGMENT_PREFERENCE_INJECTION)
     private Fragment mPreferenceInjection;
 
+    @Inject
+    @Named(ModuleConstant.FRAGMENT_SYSTEMSERVICE_INJECTION)
+    private Fragment mSystemServiceInjection;
+
     private Map<String, Object> mObjectMap = new LinkedHashMap<String, Object>();
 
     @OnListItemClick
@@ -89,7 +93,7 @@ public class TopList {
                 .commit();
         mObjectMap.put("Preference Injection", mPreferenceInjection);
 
-        mObjectMap.put("SystemService Injection", mViewInjection);
+        mObjectMap.put("SystemService Injection", mSystemServiceInjection);
         //mObjectMap.put("Application", mViewInjection);
         mObjectMap.put("Fragment", mViewInjection);
         mObjectMap.put("Service", mViewInjection);

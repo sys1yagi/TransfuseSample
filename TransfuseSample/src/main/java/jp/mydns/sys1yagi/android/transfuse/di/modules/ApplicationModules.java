@@ -18,6 +18,7 @@ import jp.mydns.sys1yagi.android.transfuse.di.providers.RssLoaderProvider;
 import jp.mydns.sys1yagi.android.transfuse.fragments.ActivityLifecycleMethods;
 import jp.mydns.sys1yagi.android.transfuse.fragments.PreferenceInjection;
 import jp.mydns.sys1yagi.android.transfuse.fragments.ResourceInjection;
+import jp.mydns.sys1yagi.android.transfuse.fragments.SystemServiceInjection;
 import jp.mydns.sys1yagi.android.transfuse.fragments.TopList;
 import jp.mydns.sys1yagi.android.transfuse.fragments.ViewInjection;
 import jp.mydns.sys1yagi.android.transfuse.tools.IRssLoader;
@@ -69,6 +70,11 @@ public class ApplicationModules {
         return getFragment(PreferenceInjection.class);
     }
 
+    @Provides
+    @Named(ModuleConstant.FRAGMENT_SYSTEMSERVICE_INJECTION)
+    public Fragment getSystemServiceInjection(){
+        return getFragment(SystemServiceInjection.class);
+    }
 
     private Fragment getFragment(Class fragmentBaseClass) {
         try {
