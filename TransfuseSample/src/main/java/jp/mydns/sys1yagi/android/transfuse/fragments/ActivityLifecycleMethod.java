@@ -23,7 +23,7 @@ import jp.mydns.sys1yagi.android.transfuse.R;
 
 @Fragment
 @Layout(R.layout.fragment_activity_lifecycle_methods)
-public class ActivityLifecycleMethods {
+public class ActivityLifecycleMethod {
 
     @Inject
     @View(R.id.log_text)

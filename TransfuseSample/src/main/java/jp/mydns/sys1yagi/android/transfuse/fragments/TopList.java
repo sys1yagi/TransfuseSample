@@ -41,7 +41,7 @@ public class TopList {
     private Fragment mViewInjection;
 
     @Inject
-    @Named(ModuleConstant.FRAGMENT_ACTIVITY_LIFECYCLE_METHODS)
+    @Named(ModuleConstant.FRAGMENT_ACTIVITY_LIFECYCLE_METHOD)
     private Fragment mActivityLifecycleMethods;
 
     @Inject
@@ -55,6 +55,10 @@ public class TopList {
     @Inject
     @Named(ModuleConstant.FRAGMENT_SYSTEMSERVICE_INJECTION)
     private Fragment mSystemServiceInjection;
+
+    @Inject
+    @Named(ModuleConstant.FRAGMENT_FRAGMENT_LIFECYCLE_METHOD)
+    private Fragment mFragmentLifecycleMethod;
 
     private Map<String, Object> mObjectMap = new LinkedHashMap<String, Object>();
 
@@ -95,8 +99,8 @@ public class TopList {
 
         mObjectMap.put("SystemService Injection", mSystemServiceInjection);
         //mObjectMap.put("Application", mViewInjection);
-        mObjectMap.put("Fragment", mViewInjection);
-        mObjectMap.put("Service", mViewInjection);
+        mObjectMap.put("Fragment Lifecycle Methods", mFragmentLifecycleMethod);
+        mObjectMap.put("Service Lifecycle Methods", mViewInjection);
         mObjectMap.put("Listener Registration", mViewInjection);
         mObjectMap.put("Call-Through Events", mViewInjection);
         //mObjectMap.put("Provider", mViewInjection);

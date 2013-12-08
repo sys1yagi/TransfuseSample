@@ -15,7 +15,8 @@ import javax.inject.Named;
 
 import jp.mydns.sys1yagi.android.transfuse.di.constant.ModuleConstant;
 import jp.mydns.sys1yagi.android.transfuse.di.providers.RssLoaderProvider;
-import jp.mydns.sys1yagi.android.transfuse.fragments.ActivityLifecycleMethods;
+import jp.mydns.sys1yagi.android.transfuse.fragments.ActivityLifecycleMethod;
+import jp.mydns.sys1yagi.android.transfuse.fragments.FragmentLifecycleMethod;
 import jp.mydns.sys1yagi.android.transfuse.fragments.PreferenceInjection;
 import jp.mydns.sys1yagi.android.transfuse.fragments.ResourceInjection;
 import jp.mydns.sys1yagi.android.transfuse.fragments.SystemServiceInjection;
@@ -53,9 +54,9 @@ public class ApplicationModules {
     }
 
     @Provides
-    @Named(ModuleConstant.FRAGMENT_ACTIVITY_LIFECYCLE_METHODS)
+    @Named(ModuleConstant.FRAGMENT_ACTIVITY_LIFECYCLE_METHOD)
     public Fragment getActivityLifecycleMethods() {
-        return getFragment(ActivityLifecycleMethods.class);
+        return getFragment(ActivityLifecycleMethod.class);
     }
 
     @Provides
@@ -74,6 +75,12 @@ public class ApplicationModules {
     @Named(ModuleConstant.FRAGMENT_SYSTEMSERVICE_INJECTION)
     public Fragment getSystemServiceInjection(){
         return getFragment(SystemServiceInjection.class);
+    }
+
+    @Provides
+    @Named(ModuleConstant.FRAGMENT_FRAGMENT_LIFECYCLE_METHOD)
+    public Fragment getFragmentLifecycleMethod(){
+        return getFragment(FragmentLifecycleMethod.class);
     }
 
     private Fragment getFragment(Class fragmentBaseClass) {
