@@ -16,6 +16,7 @@ import javax.inject.Named;
 import jp.mydns.sys1yagi.android.transfuse.di.constant.ModuleConstant;
 import jp.mydns.sys1yagi.android.transfuse.di.providers.RssLoaderProvider;
 import jp.mydns.sys1yagi.android.transfuse.fragments.ActivityLifecycleMethod;
+import jp.mydns.sys1yagi.android.transfuse.fragments.Broadcast;
 import jp.mydns.sys1yagi.android.transfuse.fragments.FragmentLifecycleMethod;
 import jp.mydns.sys1yagi.android.transfuse.fragments.PreferenceInjection;
 import jp.mydns.sys1yagi.android.transfuse.fragments.ResourceInjection;
@@ -73,14 +74,20 @@ public class ApplicationModules {
 
     @Provides
     @Named(ModuleConstant.FRAGMENT_SYSTEMSERVICE_INJECTION)
-    public Fragment getSystemServiceInjection(){
+    public Fragment getSystemServiceInjection() {
         return getFragment(SystemServiceInjection.class);
     }
 
     @Provides
     @Named(ModuleConstant.FRAGMENT_FRAGMENT_LIFECYCLE_METHOD)
-    public Fragment getFragmentLifecycleMethod(){
+    public Fragment getFragmentLifecycleMethod() {
         return getFragment(FragmentLifecycleMethod.class);
+    }
+
+    @Provides
+    @Named(ModuleConstant.FRAGMENT_BROADCAST_RECEIVER)
+    public Fragment getBroadcastReceiver() {
+        return getFragment(Broadcast.class);
     }
 
     private Fragment getFragment(Class fragmentBaseClass) {

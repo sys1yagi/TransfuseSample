@@ -18,5 +18,5 @@ public class ModuleConstant {
 
     public static final String FRAGMENT_FRAGMENT_LIFECYCLE_METHOD = "FRAGMENT_LIFECYCLE_METHOD";
 
-
+    public static final String FRAGMENT_BROADCAST_RECEIVER = "FRAGMENT_BROADCAST_RECEIVER";
 }
