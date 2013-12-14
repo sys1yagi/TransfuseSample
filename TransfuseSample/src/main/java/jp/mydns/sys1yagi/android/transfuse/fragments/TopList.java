@@ -102,7 +102,6 @@ public class TopList {
         mObjectMap.put("Preference Injection", mPreferenceInjection);
 
         mObjectMap.put("SystemService Injection", mSystemServiceInjection);
-        //mObjectMap.put("Application", mViewInjection);
         mObjectMap.put("BroadcastReceiver Lifecycle Method", mBroadcastReceiver);
         mObjectMap.put("Fragment Lifecycle Method", mFragmentLifecycleMethod);
         mObjectMap.put("Service Lifecycle Method", mViewInjection);

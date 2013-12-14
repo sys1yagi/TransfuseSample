@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest t:tag="+" xmlns:t="http://androidtransfuse.org" xmlns:android="http://schemas.android.com/apk/res/android" package="jp.mydns.sys1yagi.android.transfuse" android:versionCode="1" android:versionName="1.0">
     <uses-sdk android:minSdkVersion="7" android:targetSdkVersion="19"/>
-    <application android:name="android.app.Application" android:theme="@style/AppTheme">
-        <activity android:name=".ExtraInjectionActivity"/>
-        <activity android:label="@string/app_name" android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+    <application t:tag="+,n" android:name=".TransfuseApplication">
+        <activity t:tag="+,n" android:name=".ExtraInjectionActivity"/>
+        <activity t:tag="+,l,n" android:label="@string/app_name" android:name=".MainActivity">
+            <intent-filter t:tag="+">
+                <action t:tag="+,n" android:name="android.intent.action.MAIN"/>
+                <category t:tag="+,n" android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <receiver android:name=".receivers.ActionBroadcastReceiver">
-            <intent-filter>
-                <action android:name="jp.mydns.sys1yagi.android.transfuse.ACTION"/>
+        <receiver t:tag="+,n" android:name=".receivers.ActionBroadcastReceiver">
+            <intent-filter t:tag="+">
+                <action t:tag="+,n" android:name="jp.mydns.sys1yagi.android.transfuse.ACTION"/>
             </intent-filter>
         </receiver>
     </application>
