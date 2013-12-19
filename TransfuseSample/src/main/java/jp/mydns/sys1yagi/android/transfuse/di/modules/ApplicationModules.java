@@ -17,11 +17,12 @@ import jp.mydns.sys1yagi.android.transfuse.di.constant.ModuleConstant;
 import jp.mydns.sys1yagi.android.transfuse.di.providers.RssLoaderProvider;
 import jp.mydns.sys1yagi.android.transfuse.fragments.ActivityLifecycleMethod;
 import jp.mydns.sys1yagi.android.transfuse.fragments.Broadcast;
+import jp.mydns.sys1yagi.android.transfuse.CallThroughEvents;
 import jp.mydns.sys1yagi.android.transfuse.fragments.FragmentLifecycleMethod;
+import jp.mydns.sys1yagi.android.transfuse.fragments.ItemList;
 import jp.mydns.sys1yagi.android.transfuse.fragments.PreferenceInjection;
 import jp.mydns.sys1yagi.android.transfuse.fragments.ResourceInjection;
 import jp.mydns.sys1yagi.android.transfuse.fragments.SystemServiceInjection;
-import jp.mydns.sys1yagi.android.transfuse.fragments.TopList;
 import jp.mydns.sys1yagi.android.transfuse.fragments.ViewInjection;
 import jp.mydns.sys1yagi.android.transfuse.tools.IRssLoader;
 
@@ -43,9 +44,9 @@ public class ApplicationModules {
     }
 
     @Provides
-    @Named(ModuleConstant.FRAGMENT_TOP_LIST)
+    @Named(ModuleConstant.FRAGMENT_ITEM_LIST)
     public Fragment getTopList() {
-        return getFragment(TopList.class);
+        return getFragment(ItemList.class);
     }
 
     @Provides
@@ -88,6 +89,12 @@ public class ApplicationModules {
     @Named(ModuleConstant.FRAGMENT_BROADCAST_RECEIVER)
     public Fragment getBroadcastReceiver() {
         return getFragment(Broadcast.class);
+    }
+
+    @Provides
+    @Named(ModuleConstant.FRAGMENT_CALL_THROUGH_EVENTS)
+    public Fragment getCallThroughEvents() {
+        return getFragment(CallThroughEvents.class);
     }
 
     private Fragment getFragment(Class fragmentBaseClass) {

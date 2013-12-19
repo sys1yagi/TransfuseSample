@@ -31,14 +31,14 @@ public class Main {
     FragmentManager mFragmentManager;
 
     @Inject
-    @Named(ModuleConstant.FRAGMENT_TOP_LIST)
-    Fragment mTopList;
+    @Named(ModuleConstant.FRAGMENT_ITEM_LIST)
+    Fragment mItemList;
 
     @OnCreate
     public void create(Bundle saved) {
         if (saved == null) {
             FragmentTransaction transaction = mFragmentManager.beginTransaction();
-            transaction.add(R.id.content_frame, mTopList);
+            transaction.add(R.id.content_frame, mItemList);
             transaction.commit();
         }
     }

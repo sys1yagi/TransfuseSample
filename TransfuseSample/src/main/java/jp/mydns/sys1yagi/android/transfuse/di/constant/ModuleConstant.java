@@ -4,7 +4,7 @@ public class ModuleConstant {
 
     public static final String FRAGMENT_TOP_MENU_LIST = "top menu list";
 
-    public static final String FRAGMENT_TOP_LIST = "TOP_LIST";
+    public static final String FRAGMENT_ITEM_LIST = "TOP_LIST";
 
     public static final String FRAGMENT_VIEW_INJECTION = "VIEW_INJECTION";
 
@@ -19,4 +19,6 @@ public class ModuleConstant {
     public static final String FRAGMENT_FRAGMENT_LIFECYCLE_METHOD = "FRAGMENT_LIFECYCLE_METHOD";
 
     public static final String FRAGMENT_BROADCAST_RECEIVER = "FRAGMENT_BROADCAST_RECEIVER";
+
+    public static final String FRAGMENT_CALL_THROUGH_EVENTS = "FRAGMENT_CALL_THROUGH_EVENTS";
 }

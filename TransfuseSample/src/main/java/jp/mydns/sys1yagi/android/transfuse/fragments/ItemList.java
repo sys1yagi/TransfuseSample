@@ -18,13 +18,14 @@ import java.util.Map;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import jp.mydns.sys1yagi.android.transfuse.CallThroughEventsActivityStrategy;
 import jp.mydns.sys1yagi.android.transfuse.ExtraInjectionActivityStrategy;
 import jp.mydns.sys1yagi.android.transfuse.R;
 import jp.mydns.sys1yagi.android.transfuse.di.constant.ModuleConstant;
 import jp.mydns.sys1yagi.android.transfuse.di.constant.PreferenceConstant;
 
 @org.androidtransfuse.annotations.Fragment(type = ListFragment.class)
-public class TopList {
+public class ItemList {
 
     @Inject
     IntentFactory mIntentFactory;
@@ -63,6 +64,10 @@ public class TopList {
     @Inject
     @Named(ModuleConstant.FRAGMENT_BROADCAST_RECEIVER)
     private Fragment mBroadcastReceiver;
+
+    @Inject
+    @Named(ModuleConstant.FRAGMENT_CALL_THROUGH_EVENTS)
+    private Fragment mCallThroughEvents;
 
     private Map<String, Object> mObjectMap = new LinkedHashMap<String, Object>();
 
@@ -106,7 +111,7 @@ public class TopList {
         mObjectMap.put("Fragment Lifecycle Method", mFragmentLifecycleMethod);
         mObjectMap.put("Service Lifecycle Method", mViewInjection);
         mObjectMap.put("Listener Registration", mViewInjection);
-        mObjectMap.put("Call-Through Events", mViewInjection);
+        mObjectMap.put("Call-Through Events", new CallThroughEventsActivityStrategy());
         //mObjectMap.put("Provider", mViewInjection);
         mObjectMap.put("Scope", mViewInjection);
         mObjectMap.put("ImplementedBy", mViewInjection);
