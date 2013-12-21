@@ -1,17 +1,17 @@
 package jp.mydns.sys1yagi.android.transfuse;
 
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+
 import org.androidtransfuse.annotations.Activity;
 import org.androidtransfuse.annotations.Intent;
 import org.androidtransfuse.annotations.IntentFilter;
 import org.androidtransfuse.annotations.IntentType;
 import org.androidtransfuse.annotations.Layout;
 import org.androidtransfuse.annotations.OnCreate;
-
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 
 import javax.inject.Inject;
 import javax.inject.Named;

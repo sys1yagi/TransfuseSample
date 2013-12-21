@@ -24,4 +24,8 @@ public class ModuleConstant {
 
     public static final String FRAGMENT_IMPLEMENTED_BY = "FRAGMENT_IMPLEMENTED_BY";
 
+    public static final String FRAGMENT_METHOD_INTERCEPTORS = "FRAGMENT_METHOD_INTERCEPTORS";
+
+
+
 }

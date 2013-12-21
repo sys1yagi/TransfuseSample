@@ -25,6 +25,7 @@ dependencies {
     transfuse 'org.parceler:parceler:0.1.1'
     compile 'org.androidtransfuse:transfuse-api:0.2.2'
     compile 'org.parceler:parceler-api:0.1.1'
+    compile 'commons-io:commons-io:2.4'
 }
 
 

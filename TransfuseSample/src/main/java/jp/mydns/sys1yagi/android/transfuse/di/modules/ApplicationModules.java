@@ -4,7 +4,9 @@ import org.androidtransfuse.annotations.BindProvider;
 import org.androidtransfuse.annotations.BindProviders;
 import org.androidtransfuse.annotations.Provides;
 import org.androidtransfuse.annotations.TransfuseModule;
+import org.androidtransfuse.annotations.UsesPermission;
 
+import android.Manifest;
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -22,6 +24,7 @@ import jp.mydns.sys1yagi.android.transfuse.fragments.FragmentLifecycleMethod;
 import jp.mydns.sys1yagi.android.transfuse.fragments.ImplementedBy;
 import jp.mydns.sys1yagi.android.transfuse.fragments.ItemList;
 import jp.mydns.sys1yagi.android.transfuse.fragments.ListenerRegistration;
+import jp.mydns.sys1yagi.android.transfuse.fragments.MethodInterceptors;
 import jp.mydns.sys1yagi.android.transfuse.fragments.PreferenceInjection;
 import jp.mydns.sys1yagi.android.transfuse.fragments.ResourceInjection;
 import jp.mydns.sys1yagi.android.transfuse.fragments.SystemServiceInjection;
@@ -32,6 +35,7 @@ import jp.mydns.sys1yagi.android.transfuse.tools.IRssLoader;
 @BindProviders({
         @BindProvider(type = IRssLoader.class, provider = RssLoaderProvider.class)
 })
+@UsesPermission(Manifest.permission.INTERNET)
 public class ApplicationModules {
 
     @Provides
@@ -105,6 +109,11 @@ public class ApplicationModules {
         return getFragment(ImplementedBy.class);
     }
 
+    @Provides
+    @Named(ModuleConstant.FRAGMENT_METHOD_INTERCEPTORS)
+    public Fragment getMethodInterceptors() {
+        return getFragment(MethodInterceptors.class);
+    }
 
     private Fragment getFragment(Class fragmentBaseClass) {
         try {
