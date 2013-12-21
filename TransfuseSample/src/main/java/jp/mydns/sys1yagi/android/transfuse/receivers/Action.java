@@ -2,6 +2,7 @@ package jp.mydns.sys1yagi.android.transfuse.receivers;
 
 import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.androidtransfuse.annotations.BroadcastReceiver;
 import org.androidtransfuse.annotations.Intent;
@@ -18,5 +19,6 @@ public class Action {
     @OnReceive
     public void boot(Context context, android.content.Intent intent) {
         Log.d(TAG, "receive action :" + intent.getAction());
+        Toast.makeText(context, "receive action :" + intent.getAction(), Toast.LENGTH_SHORT).show();
     }
 }

@@ -29,7 +29,7 @@ public class TransfuseApplicationBase {
     }
 
     @OnConfigurationChanged
-    public void onfigurationChanged() {
+    public void configurationChanged() {
         Log.d(TAG, "OnConfigurationChanged");
     }
 }
