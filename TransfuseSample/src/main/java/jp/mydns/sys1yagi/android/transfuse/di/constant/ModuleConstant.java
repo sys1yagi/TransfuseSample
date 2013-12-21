@@ -28,4 +28,6 @@ public class ModuleConstant {
 
     public static final String FRAGMENT_EVENT_BUS = "FRAGMENT_EVENT_BUS";
 
+    public static final String FRAGMENT_FACTORY = "FRAGMENT_FACTORY";
+
 }

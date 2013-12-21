@@ -83,6 +83,10 @@ public class ItemList {
     @Named(ModuleConstant.FRAGMENT_EVENT_BUS)
     private Fragment mEventBus;
 
+    @Inject
+    @Named(ModuleConstant.FRAGMENT_FACTORY)
+    private Fragment mFactory;
+
     private Map<String, Object> mObjectMap = new LinkedHashMap<String, Object>();
 
     @OnListItemClick
@@ -126,7 +130,7 @@ public class ItemList {
         mObjectMap.put("Service Lifecycle Method", mViewInjection); //TODO
         mObjectMap.put("Listener Registration", mListenerRegistration);
         mObjectMap.put("Call-Through Events", new CallThroughEventsActivityStrategy());
-        //mObjectMap.put("Provider", mViewInjection);
+
         mObjectMap.put("Scope", mViewInjection); //TODO
         mObjectMap.put("ImplementedBy", mImplementedBy);
         mObjectMap.put("MethodInterceptors", mMethodInterceptors);
@@ -137,8 +141,7 @@ public class ItemList {
         sampleData.setName("Transfuse");
         sampleData.setDescription("this is a sample data!");
         mObjectMap.put("Parcel", new SampleDataReceiveActivityStrategy(sampleData));
-
-        mObjectMap.put("Factory", mViewInjection); //TODO
+        mObjectMap.put("Factory", mFactory);
 
         for (String title : mObjectMap.keySet()) {
             mAdapter.add(title);

@@ -17,10 +17,12 @@ import javax.inject.Named;
 
 import jp.mydns.sys1yagi.android.transfuse.di.constant.ModuleConstant;
 import jp.mydns.sys1yagi.android.transfuse.di.providers.RssLoaderProvider;
+import jp.mydns.sys1yagi.android.transfuse.di.providers.SampleDataProvider;
 import jp.mydns.sys1yagi.android.transfuse.fragments.ActivityLifecycleMethod;
 import jp.mydns.sys1yagi.android.transfuse.fragments.Broadcast;
 import jp.mydns.sys1yagi.android.transfuse.CallThroughEvents;
 import jp.mydns.sys1yagi.android.transfuse.fragments.EventBus;
+import jp.mydns.sys1yagi.android.transfuse.fragments.Factory;
 import jp.mydns.sys1yagi.android.transfuse.fragments.FragmentLifecycleMethod;
 import jp.mydns.sys1yagi.android.transfuse.fragments.ImplementedBy;
 import jp.mydns.sys1yagi.android.transfuse.fragments.ItemList;
@@ -30,11 +32,13 @@ import jp.mydns.sys1yagi.android.transfuse.fragments.PreferenceInjection;
 import jp.mydns.sys1yagi.android.transfuse.fragments.ResourceInjection;
 import jp.mydns.sys1yagi.android.transfuse.fragments.SystemServiceInjection;
 import jp.mydns.sys1yagi.android.transfuse.fragments.ViewInjection;
+import jp.mydns.sys1yagi.android.transfuse.models.SampleData;
 import jp.mydns.sys1yagi.android.transfuse.tools.IRssLoader;
 
 @TransfuseModule
 @BindProviders({
         @BindProvider(type = IRssLoader.class, provider = RssLoaderProvider.class)
+        , @BindProvider(type = SampleData.class, provider = SampleDataProvider.class)
 })
 @UsesPermission(Manifest.permission.INTERNET)
 public class ApplicationModules {
@@ -118,10 +122,15 @@ public class ApplicationModules {
 
     @Provides
     @Named(ModuleConstant.FRAGMENT_EVENT_BUS)
-    public Fragment getEventBus(){
+    public Fragment getEventBus() {
         return getFragment(EventBus.class);
     }
 
+    @Provides
+    @Named(ModuleConstant.FRAGMENT_FACTORY)
+    public Fragment getFactory() {
+        return getFragment(Factory.class);
+    }
 
     private Fragment getFragment(Class fragmentBaseClass) {
         try {
