@@ -66,8 +66,8 @@ public class ItemList {
     private Fragment mBroadcastReceiver;
 
     @Inject
-    @Named(ModuleConstant.FRAGMENT_CALL_THROUGH_EVENTS)
-    private Fragment mCallThroughEvents;
+    @Named(ModuleConstant.FRAGMENT_LISTENER_REGISTRATION)
+    private Fragment mListenerRegistration;
 
     private Map<String, Object> mObjectMap = new LinkedHashMap<String, Object>();
 
@@ -109,8 +109,8 @@ public class ItemList {
         mObjectMap.put("SystemService Injection", mSystemServiceInjection);
         mObjectMap.put("BroadcastReceiver Lifecycle Method", mBroadcastReceiver);
         mObjectMap.put("Fragment Lifecycle Method", mFragmentLifecycleMethod);
-        mObjectMap.put("Service Lifecycle Method", mViewInjection);
-        mObjectMap.put("Listener Registration", mViewInjection);
+        mObjectMap.put("Service Lifecycle Method", mViewInjection); //TODO
+        mObjectMap.put("Listener Registration", mListenerRegistration);
         mObjectMap.put("Call-Through Events", new CallThroughEventsActivityStrategy());
         //mObjectMap.put("Provider", mViewInjection);
         mObjectMap.put("Scope", mViewInjection);

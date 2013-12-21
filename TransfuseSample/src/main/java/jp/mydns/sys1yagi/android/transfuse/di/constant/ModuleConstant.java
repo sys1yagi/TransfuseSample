@@ -20,5 +20,5 @@ public class ModuleConstant {
 
     public static final String FRAGMENT_BROADCAST_RECEIVER = "FRAGMENT_BROADCAST_RECEIVER";
 
-    public static final String FRAGMENT_CALL_THROUGH_EVENTS = "FRAGMENT_CALL_THROUGH_EVENTS";
+    public static final String FRAGMENT_LISTENER_REGISTRATION = "FRAGMENT_LISTENER_REGISTRATION";
 }
