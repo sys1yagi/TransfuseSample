@@ -19,6 +19,7 @@ import jp.mydns.sys1yagi.android.transfuse.fragments.ActivityLifecycleMethod;
 import jp.mydns.sys1yagi.android.transfuse.fragments.Broadcast;
 import jp.mydns.sys1yagi.android.transfuse.CallThroughEvents;
 import jp.mydns.sys1yagi.android.transfuse.fragments.FragmentLifecycleMethod;
+import jp.mydns.sys1yagi.android.transfuse.fragments.ImplementedBy;
 import jp.mydns.sys1yagi.android.transfuse.fragments.ItemList;
 import jp.mydns.sys1yagi.android.transfuse.fragments.ListenerRegistration;
 import jp.mydns.sys1yagi.android.transfuse.fragments.PreferenceInjection;
@@ -94,9 +95,16 @@ public class ApplicationModules {
 
     @Provides
     @Named(ModuleConstant.FRAGMENT_LISTENER_REGISTRATION)
-    public Fragment getListenerRegistration(){
+    public Fragment getListenerRegistration() {
         return getFragment(ListenerRegistration.class);
     }
+
+    @Provides
+    @Named(ModuleConstant.FRAGMENT_IMPLEMENTED_BY)
+    public Fragment getImplementedBy() {
+        return getFragment(ImplementedBy.class);
+    }
+
 
     private Fragment getFragment(Class fragmentBaseClass) {
         try {

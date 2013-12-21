@@ -69,6 +69,10 @@ public class ItemList {
     @Named(ModuleConstant.FRAGMENT_LISTENER_REGISTRATION)
     private Fragment mListenerRegistration;
 
+    @Inject
+    @Named(ModuleConstant.FRAGMENT_IMPLEMENTED_BY)
+    private Fragment mImplementedBy;
+
     private Map<String, Object> mObjectMap = new LinkedHashMap<String, Object>();
 
     @OnListItemClick
@@ -114,7 +118,7 @@ public class ItemList {
         mObjectMap.put("Call-Through Events", new CallThroughEventsActivityStrategy());
         //mObjectMap.put("Provider", mViewInjection);
         mObjectMap.put("Scope", mViewInjection);
-        mObjectMap.put("ImplementedBy", mViewInjection);
+        mObjectMap.put("ImplementedBy", mImplementedBy);
         mObjectMap.put("Asynchronous", mViewInjection);
         mObjectMap.put("UIThread", mViewInjection);
         mObjectMap.put("Events", mViewInjection);
