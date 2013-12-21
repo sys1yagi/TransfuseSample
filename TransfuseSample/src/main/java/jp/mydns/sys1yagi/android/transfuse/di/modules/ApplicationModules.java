@@ -20,6 +20,7 @@ import jp.mydns.sys1yagi.android.transfuse.di.providers.RssLoaderProvider;
 import jp.mydns.sys1yagi.android.transfuse.fragments.ActivityLifecycleMethod;
 import jp.mydns.sys1yagi.android.transfuse.fragments.Broadcast;
 import jp.mydns.sys1yagi.android.transfuse.CallThroughEvents;
+import jp.mydns.sys1yagi.android.transfuse.fragments.EventBus;
 import jp.mydns.sys1yagi.android.transfuse.fragments.FragmentLifecycleMethod;
 import jp.mydns.sys1yagi.android.transfuse.fragments.ImplementedBy;
 import jp.mydns.sys1yagi.android.transfuse.fragments.ItemList;
@@ -114,6 +115,13 @@ public class ApplicationModules {
     public Fragment getMethodInterceptors() {
         return getFragment(MethodInterceptors.class);
     }
+
+    @Provides
+    @Named(ModuleConstant.FRAGMENT_EVENT_BUS)
+    public Fragment getEventBus(){
+        return getFragment(EventBus.class);
+    }
+
 
     private Fragment getFragment(Class fragmentBaseClass) {
         try {

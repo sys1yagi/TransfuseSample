@@ -77,6 +77,10 @@ public class ItemList {
     @Named(ModuleConstant.FRAGMENT_METHOD_INTERCEPTORS)
     private Fragment mMethodInterceptors;
 
+    @Inject
+    @Named(ModuleConstant.FRAGMENT_EVENT_BUS)
+    private Fragment mEventBus;
+
     private Map<String, Object> mObjectMap = new LinkedHashMap<String, Object>();
 
     @OnListItemClick
@@ -124,9 +128,7 @@ public class ItemList {
         mObjectMap.put("Scope", mViewInjection);
         mObjectMap.put("ImplementedBy", mImplementedBy);
         mObjectMap.put("MethodInterceptors", mMethodInterceptors);
-//        mObjectMap.put("Asynchronous", mViewInjection);
-//        mObjectMap.put("UIThread", mViewInjection);
-        mObjectMap.put("Events", mViewInjection);
+        mObjectMap.put("Event Bus", mEventBus);
         mObjectMap.put("Parcel", mViewInjection);
         mObjectMap.put("Factory", mViewInjection);
 

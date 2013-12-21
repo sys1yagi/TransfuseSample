@@ -26,6 +26,6 @@ public class ModuleConstant {
 
     public static final String FRAGMENT_METHOD_INTERCEPTORS = "FRAGMENT_METHOD_INTERCEPTORS";
 
-
+    public static final String FRAGMENT_EVENT_BUS = "FRAGMENT_EVENT_BUS";
 
 }
