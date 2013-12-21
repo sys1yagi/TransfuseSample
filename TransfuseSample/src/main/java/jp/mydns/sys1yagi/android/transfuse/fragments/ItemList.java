@@ -91,6 +91,10 @@ public class ItemList {
     @Named(ModuleConstant.FRAGMENT_SCOPE)
     private Fragment mScope;
 
+    @Inject
+    @Named(ModuleConstant.FRAGMENT_SERVICE_LIFECYCLE_METHOD)
+    private Fragment mServiceLifecycleMethod;
+
     private Map<String, Object> mObjectMap = new LinkedHashMap<String, Object>();
 
     @OnListItemClick
@@ -131,7 +135,7 @@ public class ItemList {
         mObjectMap.put("SystemService Injection", mSystemServiceInjection);
         mObjectMap.put("BroadcastReceiver Lifecycle Method", mBroadcastReceiver);
         mObjectMap.put("Fragment Lifecycle Method", mFragmentLifecycleMethod);
-        mObjectMap.put("Service Lifecycle Method", mViewInjection); //TODO
+        mObjectMap.put("Service Lifecycle Method", mServiceLifecycleMethod);
         mObjectMap.put("Listener Registration", mListenerRegistration);
         mObjectMap.put("Call-Through Events", new CallThroughEventsActivityStrategy());
 

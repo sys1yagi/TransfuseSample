@@ -32,4 +32,6 @@ public class ModuleConstant {
 
     public static final String FRAGMENT_SCOPE = "FRAGMENT_SCOPE";
 
+    public static final String FRAGMENT_SERVICE_LIFECYCLE_METHOD = "FRAGMENT_SERVICE_LIFECYCLE_METHOD";
+
 }
