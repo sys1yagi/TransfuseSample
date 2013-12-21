@@ -21,8 +21,10 @@ import javax.inject.Named;
 import jp.mydns.sys1yagi.android.transfuse.CallThroughEventsActivityStrategy;
 import jp.mydns.sys1yagi.android.transfuse.ExtraInjectionActivityStrategy;
 import jp.mydns.sys1yagi.android.transfuse.R;
+import jp.mydns.sys1yagi.android.transfuse.SampleDataReceiveActivityStrategy;
 import jp.mydns.sys1yagi.android.transfuse.di.constant.ModuleConstant;
 import jp.mydns.sys1yagi.android.transfuse.di.constant.PreferenceConstant;
+import jp.mydns.sys1yagi.android.transfuse.models.SampleData;
 
 @org.androidtransfuse.annotations.Fragment(type = ListFragment.class)
 public class ItemList {
@@ -125,12 +127,18 @@ public class ItemList {
         mObjectMap.put("Listener Registration", mListenerRegistration);
         mObjectMap.put("Call-Through Events", new CallThroughEventsActivityStrategy());
         //mObjectMap.put("Provider", mViewInjection);
-        mObjectMap.put("Scope", mViewInjection);
+        mObjectMap.put("Scope", mViewInjection); //TODO
         mObjectMap.put("ImplementedBy", mImplementedBy);
         mObjectMap.put("MethodInterceptors", mMethodInterceptors);
         mObjectMap.put("Event Bus", mEventBus);
-        mObjectMap.put("Parcel", mViewInjection);
-        mObjectMap.put("Factory", mViewInjection);
+
+        SampleData sampleData = new SampleData();
+        sampleData.setId(10);
+        sampleData.setName("Transfuse");
+        sampleData.setDescription("this is a sample data!");
+        mObjectMap.put("Parcel", new SampleDataReceiveActivityStrategy(sampleData));
+
+        mObjectMap.put("Factory", mViewInjection); //TODO
 
         for (String title : mObjectMap.keySet()) {
             mAdapter.add(title);
