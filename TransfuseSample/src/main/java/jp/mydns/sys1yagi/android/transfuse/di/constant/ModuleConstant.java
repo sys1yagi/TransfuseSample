@@ -30,4 +30,6 @@ public class ModuleConstant {
 
     public static final String FRAGMENT_FACTORY = "FRAGMENT_FACTORY";
 
+    public static final String FRAGMENT_SCOPE = "FRAGMENT_SCOPE";
+
 }

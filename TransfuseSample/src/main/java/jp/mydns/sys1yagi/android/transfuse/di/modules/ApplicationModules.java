@@ -30,6 +30,7 @@ import jp.mydns.sys1yagi.android.transfuse.fragments.ListenerRegistration;
 import jp.mydns.sys1yagi.android.transfuse.fragments.MethodInterceptors;
 import jp.mydns.sys1yagi.android.transfuse.fragments.PreferenceInjection;
 import jp.mydns.sys1yagi.android.transfuse.fragments.ResourceInjection;
+import jp.mydns.sys1yagi.android.transfuse.fragments.Scope;
 import jp.mydns.sys1yagi.android.transfuse.fragments.SystemServiceInjection;
 import jp.mydns.sys1yagi.android.transfuse.fragments.ViewInjection;
 import jp.mydns.sys1yagi.android.transfuse.models.SampleData;
@@ -130,6 +131,12 @@ public class ApplicationModules {
     @Named(ModuleConstant.FRAGMENT_FACTORY)
     public Fragment getFactory() {
         return getFragment(Factory.class);
+    }
+
+    @Provides
+    @Named(ModuleConstant.FRAGMENT_SCOPE)
+    public Fragment getScope() {
+        return getFragment(Scope.class);
     }
 
     private Fragment getFragment(Class fragmentBaseClass) {
